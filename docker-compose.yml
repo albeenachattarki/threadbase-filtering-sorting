@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: threadbase-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: threadbase
+      POSTGRES_PASSWORD: threadbase
+      POSTGRES_DB: threadbase
+    ports:
+      - "5432:5432"
+    volumes:
+      - threadbase_pgdata:/var/lib/postgresql/data
+
+volumes:
+  threadbase_pgdata:
